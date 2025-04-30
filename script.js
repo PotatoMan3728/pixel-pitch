@@ -1,3 +1,236 @@
+// Language translation functionality
+const translations = {
+    en: {
+        // Navigation
+        'Home': 'Home',
+        'Contact': 'Contact',
+        'Book Appointment': 'Book Appointment',
+
+        // Hero Section
+        'Transform Your Digital Presence': 'Transform Your Digital Presence',
+        'Expert web solutions, social media management, and marketing strategies to elevate your business': 'Expert web solutions, social media management, and marketing strategies to elevate your business',
+        'Get Started': 'Get Started',
+
+        // Service Cards
+        'VERTRIEB': 'SALES',
+        'Ein starker Werbesatz im Vertrieb weckt Interesse, baut Vertrauen auf und bringt den Kunden zum Kauf.': 'A strong sales pitch builds interest, establishes trust, and drives customer purchases.',
+        'SOCIAL MEDIA MANAGEMENT': 'SOCIAL MEDIA MANAGEMENT',
+        'Social Media Management steuert Auftritt und Erfolg in sozialen Netzwerken.': 'Social Media Management drives presence and success across social networks.',
+        'KREATIVES MARKETING': 'CREATIVE MARKETING',
+        'Kreatives Marketing schafft Aufmerksamkeit und Emotionen.': 'Creative marketing generates attention and emotional connections.',
+        'ANZEIGENGESTALTUNG': 'ADVERTISEMENT DESIGN',
+        'Anzeigengestaltung sorgt für visuelle Aufmerksamkeit und klare Botschaften.': 'Advertisement design ensures visual impact and clear messaging.',
+        'WEBSEITEN ENTWICKELN': 'WEBSITE DEVELOPMENT',
+        'Webseiten entwickeln heißt, benutzerfreundliche und funktionale Online-Präsenzen zu schaffen.': 'Website development means creating user-friendly and functional online presences.',
+
+        // CTA Section
+        'Ready to Transform Your Business?': 'Ready to Transform Your Business?',
+        'Let\'s work together to create your digital success story': 'Let\'s work together to create your digital success story',
+        'Book a Consultation': 'Book a Consultation',
+
+        // Footer
+        'Your digital success partner': 'Your digital success partner',
+        'Quick Links': 'Quick Links',
+        'Services': 'Services',
+        'About Us': 'About Us',
+        'Contact': 'Contact',
+        'Book Appointment': 'Book Appointment',
+        'info@pixelandpitch.com': 'info@pixelandpitch.com',
+        '123 Business Street, City, Country': '123 Business Street, City, Country',
+        'All rights reserved.': 'All rights reserved.',
+
+        // Contact Page
+        'Get in Touch': 'Get in Touch',
+        'We\'d love to hear from you': 'We\'d love to hear from you',
+        'Send us a message and we\'ll respond as soon as possible': 'Send us a message and we\'ll respond as soon as possible',
+        'Name': 'Name',
+        'Email': 'Email',
+        'Message': 'Message',
+        'Send Message': 'Send Message',
+        'Contact Information': 'Contact Information',
+        'Phone': 'Phone',
+        'Address': 'Address',
+        'Follow Us': 'Follow Us',
+
+        // Booking Page
+        'Schedule a Consultation': 'Schedule a Consultation',
+        'Book your free consultation today': 'Book your free consultation today',
+        'Let\'s discuss your project and find the best solutions': 'Let\'s discuss your project and find the best solutions',
+        'First Name': 'First Name',
+        'Last Name': 'Last Name',
+        'Phone Number': 'Phone Number',
+        'Preferred Date': 'Preferred Date',
+        'Preferred Time': 'Preferred Time',
+        'Project Details': 'Project Details',
+        'Tell us about your project': 'Tell us about your project',
+        'Book Now': 'Book Now',
+        'Morning': 'Morning',
+        'Afternoon': 'Afternoon',
+        'Evening': 'Evening'
+    },
+    de: {
+        // Navigation
+        'Home': 'Startseite',
+        'Contact': 'Kontakt',
+        'Book Appointment': 'Termin Buchen',
+
+        // Hero Section
+        'Transform Your Digital Presence': 'Transformieren Sie Ihre Digitale Präsenz',
+        'Expert web solutions, social media management, and marketing strategies to elevate your business': 'Professionelle Weblösungen, Social Media Management und Marketingstrategien für Ihren Geschäftserfolg',
+        'Get Started': 'Jetzt Starten',
+
+        // Service Cards
+        'VERTRIEB': 'VERTRIEB',
+        'Ein starker Werbesatz im Vertrieb weckt Interesse, baut Vertrauen auf und bringt den Kunden zum Kauf.': 'Ein starker Werbesatz im Vertrieb weckt Interesse, baut Vertrauen auf und bringt den Kunden zum Kauf.',
+        'SOCIAL MEDIA MANAGEMENT': 'SOCIAL MEDIA MANAGEMENT',
+        'Social Media Management steuert Auftritt und Erfolg in sozialen Netzwerken.': 'Social Media Management steuert Auftritt und Erfolg in sozialen Netzwerken.',
+        'KREATIVES MARKETING': 'KREATIVES MARKETING',
+        'Kreatives Marketing schafft Aufmerksamkeit und Emotionen.': 'Kreatives Marketing schafft Aufmerksamkeit und Emotionen.',
+        'ANZEIGENGESTALTUNG': 'ANZEIGENGESTALTUNG',
+        'Anzeigengestaltung sorgt für visuelle Aufmerksamkeit und klare Botschaften.': 'Anzeigengestaltung sorgt für visuelle Aufmerksamkeit und klare Botschaften.',
+        'WEBSEITEN ENTWICKELN': 'WEBSEITEN ENTWICKELN',
+        'Webseiten entwickeln heißt, benutzerfreundliche und funktionale Online-Präsenzen zu schaffen.': 'Webseiten entwickeln heißt, benutzerfreundliche und funktionale Online-Präsenzen zu schaffen.',
+
+        // CTA Section
+        'Ready to Transform Your Business?': 'Bereit Ihr Unternehmen zu Transformieren?',
+        'Let\'s work together to create your digital success story': 'Lassen Sie uns gemeinsam Ihre digitale Erfolgsgeschichte schreiben',
+        'Book a Consultation': 'Beratungsgespräch Vereinbaren',
+
+        // Footer
+        'Your digital success partner': 'Ihr Partner für digitalen Erfolg',
+        'Quick Links': 'Schnellzugriff',
+        'Services': 'Leistungen',
+        'About Us': 'Über Uns',
+        'Contact': 'Kontakt',
+        'Book Appointment': 'Termin Buchen',
+        'info@pixelandpitch.com': 'info@pixelandpitch.com',
+        '123 Business Street, City, Country': '123 Geschäftsstraße, Stadt, Land',
+        'All rights reserved.': 'Alle Rechte vorbehalten.',
+
+        // Contact Page
+        'Get in Touch': 'Kontaktieren Sie Uns',
+        'We\'d love to hear from you': 'Wir freuen uns von Ihnen zu hören',
+        'Send us a message and we\'ll respond as soon as possible': 'Senden Sie uns eine Nachricht und wir melden uns schnellstmöglich bei Ihnen',
+        'Name': 'Name',
+        'Email': 'E-Mail',
+        'Message': 'Nachricht',
+        'Send Message': 'Nachricht Senden',
+        'Contact Information': 'Kontaktinformationen',
+        'Phone': 'Telefon',
+        'Address': 'Adresse',
+        'Follow Us': 'Folgen Sie Uns',
+
+        // Booking Page
+        'Schedule a Consultation': 'Beratungstermin Vereinbaren',
+        'Book your free consultation today': 'Buchen Sie heute Ihre kostenlose Beratung',
+        'Let\'s discuss your project and find the best solutions': 'Lassen Sie uns Ihr Projekt besprechen und die besten Lösungen finden',
+        'First Name': 'Vorname',
+        'Last Name': 'Nachname',
+        'Phone Number': 'Telefonnummer',
+        'Preferred Date': 'Wunschtermin',
+        'Preferred Time': 'Wunschzeit',
+        'Project Details': 'Projektdetails',
+        'Tell us about your project': 'Erzählen Sie uns von Ihrem Projekt',
+        'Book Now': 'Jetzt Buchen',
+        'Morning': 'Vormittag',
+        'Afternoon': 'Nachmittag',
+        'Evening': 'Abend'
+    }
+};
+
+// Cookie management functions
+function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+function getCookie(name) {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+
+let currentLang = sessionStorage.getItem('language') || 'de';
+
+function translatePage(lang) {
+    console.log('Starting translation to:', lang);
+    const elements = document.querySelectorAll('[data-translate]');
+    console.log('Found elements to translate:', elements.length);
+    
+    if (elements.length === 0) {
+        console.warn('No elements with data-translate attribute found!');
+        return;
+    }
+    
+    elements.forEach(element => {
+        const key = element.getAttribute('data-translate');
+        console.log('Processing element:', element);
+        console.log('Translation key:', key);
+        
+        if (!key) {
+            console.warn('Element has data-translate but no key:', element);
+            return;
+        }
+        
+        if (translations[lang] && translations[lang][key]) {
+            const newText = translations[lang][key];
+            console.log('Applying translation:', newText);
+            element.textContent = newText;
+        } else {
+            console.warn('No translation found for key:', key, 'in language:', lang);
+        }
+    });
+    
+    console.log('Translation complete for language:', lang);
+}
+
+// Initialize language switcher
+document.addEventListener('DOMContentLoaded', function() {
+    const languageSwitcher = document.getElementById('languageSwitcher');
+    const currentLangSpan = document.querySelector('.current-lang');
+
+    console.log('Language switcher initialized');
+    console.log('Current language:', currentLang);
+    console.log('Language switcher element:', languageSwitcher);
+    console.log('Current lang span:', currentLangSpan);
+
+    // Set initial language
+    currentLangSpan.textContent = currentLang.toUpperCase();
+    translatePage(currentLang);
+
+    if (languageSwitcher) {
+        // Direct click handler
+        languageSwitcher.onclick = function(e) {
+            console.log('Direct click handler triggered');
+            e.preventDefault();
+            e.stopPropagation();
+            
+            console.log('Current language before switch:', currentLang);
+            
+            currentLang = currentLang === 'de' ? 'en' : 'de';
+            console.log('New language:', currentLang);
+            
+            // Store in sessionStorage instead of cookies
+            sessionStorage.setItem('language', currentLang);
+            currentLangSpan.textContent = currentLang.toUpperCase();
+            
+            // Translate immediately
+            translatePage(currentLang);
+        };
+
+        console.log('Event listeners added to language switcher');
+    } else {
+        console.error('Language switcher button not found!');
+    }
+});
+
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -385,8 +618,8 @@ function showNotification(message, type = 'success') {
 }
 
 // Add animation keyframes
-const style = document.createElement('style');
-style.textContent = `
+const animationStyles = document.createElement('style');
+animationStyles.textContent = `
     @keyframes slideIn {
         from { transform: translateX(100%); opacity: 0; }
         to { transform: translateX(0); opacity: 1; }
@@ -396,7 +629,7 @@ style.textContent = `
         to { transform: translateX(100%); opacity: 0; }
     }
 `;
-document.head.appendChild(style);
+document.head.appendChild(animationStyles);
 
 // Intersection Observer for animations
 const observerOptions = {

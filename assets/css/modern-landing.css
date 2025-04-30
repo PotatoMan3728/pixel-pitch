@@ -23,6 +23,7 @@ body {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
+    padding: 0.5rem 1rem !important;
 }
 
 .navbar:hover {
@@ -31,9 +32,10 @@ body {
 }
 
 .logo-img {
-    height: 40px;
+    height: 80px;
     width: auto;
     transition: transform 0.3s ease;
+    object-fit: contain;
 }
 
 .logo-img:hover {
@@ -222,6 +224,8 @@ body {
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .feature-card::after {
@@ -252,6 +256,9 @@ body {
     position: relative;
     z-index: 1;
     transition: transform 0.3s ease;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .feature-card p {
@@ -261,6 +268,9 @@ body {
     position: relative;
     z-index: 1;
     transition: transform 0.3s ease;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .feature-card:hover h3 {
@@ -353,6 +363,18 @@ body {
     .features-grid {
         grid-template-columns: 1fr;
     }
+
+    .feature-card {
+        padding: 1.5rem;
+    }
+
+    .feature-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .feature-card p {
+        font-size: 1rem;
+    }
 }
 
 /* CTA Section */
@@ -402,4 +424,28 @@ body {
 .feature-card,
 .video-placeholder {
     animation: fadeIn 0.8s ease-out forwards;
+}
+
+.language-switcher {
+    margin-left: 1rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    background: transparent;
+}
+
+.language-switcher:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .language-switcher {
+        margin: 0.5rem 0;
+        width: 100%;
+        text-align: center;
+    }
 } 
