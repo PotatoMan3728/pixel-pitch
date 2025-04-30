@@ -366,7 +366,7 @@ body {
         margin-top: 100px;
         width: 100%;
         max-width: 100%;
-        padding-top: 45%; /* Slightly reduced aspect ratio for mobile */
+        padding-top: 45%;
     }
 
     .features-grid {
@@ -383,6 +383,45 @@ body {
 
     .feature-card p {
         font-size: 1rem;
+    }
+}
+
+/* Specific styles for very narrow screens */
+@media (max-width: 400px) {
+    .hero-content {
+        padding: 0.5rem;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-text p {
+        font-size: 1rem;
+        line-height: 1.4;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-video {
+        margin-top: 80px;
+        padding-top: 40%;
+    }
+}
+
+@media (max-width: 361px) {
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-text p {
+        font-size: 0.95rem;
+    }
+
+    .hero-video {
+        margin-top: 70px;
+        padding-top: 35%;
     }
 }
 
