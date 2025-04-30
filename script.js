@@ -1,20 +1,3 @@
-// Mobile menu functionality
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
-
-hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    hamburger.classList.toggle('active');
-});
-
-// Close mobile menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (!e.target.closest('.navbar')) {
-        navLinks.classList.remove('active');
-        hamburger.classList.remove('active');
-    }
-});
-
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -25,6 +8,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 behavior: 'smooth',
                 block: 'start'
             });
+        }
+    });
+});
+
+// Handle navbar active states
+document.addEventListener('DOMContentLoaded', function() {
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    navLinks.forEach(link => {
+        // Remove active class from all links
+        link.classList.remove('active');
+        
+        // Add active class to current page link
+        if (link.getAttribute('href') === currentPath.split('/').pop()) {
+            link.classList.add('active');
         }
     });
 });
