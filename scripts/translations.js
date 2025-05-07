@@ -78,7 +78,15 @@ const translations = {
         'Evening': 'Evening',
         'Additional Information': 'Additional Information',
         'Schedule Consultation': 'Schedule Consultation',
-        'Subject': 'Subject'
+        'Subject': 'Subject',
+
+        // About Us Section
+        'Willkommen bei Pixel & Pitch – Ihrem Partner für digitales Marketing, Webentwicklung und Vertrieb!': 'Welcome to Pixel & Pitch – Your partner for digital marketing, web development, and sales!',
+        'Wir sind ein kreatives und engagiertes Team, das sich darauf spezialisiert hat, Unternehmen durch innovative digitale Lösungen und maßgeschneiderte Vertriebsstrategien erfolgreich zu machen. Unser Ziel ist es, Ihre Marke online sichtbarer und attraktiver zu gestalten – und das mit einem klaren Fokus auf Ihre individuellen Bedürfnisse.': 'We are a creative and dedicated team specializing in making businesses successful through innovative digital solutions and tailored sales strategies. Our goal is to make your brand more visible and attractive online – with a clear focus on your individual needs.',
+        'Warum Pixel & Pitch?': 'Why Pixel & Pitch?',
+        'Weil wir mehr bieten als nur kreative Ideen – wir liefern Ergebnisse. Mit unserem breiten Fachwissen und unserer Leidenschaft für digitale Innovation arbeiten wir Hand in Hand mit unseren Kunden, um gemeinsam Erfolge zu feiern.': 'Because we offer more than just creative ideas – we deliver results. With our broad expertise and passion for digital innovation, we work hand in hand with our clients to celebrate success together.',
+        'Lassen Sie uns gemeinsam Ihre digitale Präsenz auf das nächste Level heben!': 'Let us take your digital presence to the next level together!',
+        'Kontaktieren Sie uns – Wir freuen uns darauf, Sie kennenzulernen!': 'Contact us – We look forward to meeting you!'
     },
     de: {
         // Navigation
@@ -153,7 +161,15 @@ const translations = {
         'Evening': 'Abend',
         'Additional Information': 'Zusätzliche Informationen',
         'Schedule Consultation': 'Beratungstermin Vereinbaren',
-        'Subject': 'Betreff'
+        'Subject': 'Betreff',
+
+        // About Us Section
+        'Willkommen bei Pixel & Pitch – Ihrem Partner für digitales Marketing, Webentwicklung und Vertrieb!': 'Welcome to Pixel & Pitch – Your partner for digital marketing, web development, and sales!',
+        'Wir sind ein kreatives und engagiertes Team, das sich darauf spezialisiert hat, Unternehmen durch innovative digitale Lösungen und maßgeschneiderte Vertriebsstrategien erfolgreich zu machen. Unser Ziel ist es, Ihre Marke online sichtbarer und attraktiver zu gestalten – und das mit einem klaren Fokus auf Ihre individuellen Bedürfnisse.': 'We are a creative and dedicated team specializing in making businesses successful through innovative digital solutions and tailored sales strategies. Our goal is to make your brand more visible and attractive online – with a clear focus on your individual needs.',
+        'Warum Pixel & Pitch?': 'Why Pixel & Pitch?',
+        'Weil wir mehr bieten als nur kreative Ideen – wir liefern Ergebnisse. Mit unserem breiten Fachwissen und unserer Leidenschaft für digitale Innovation arbeiten wir Hand in Hand mit unseren Kunden, um gemeinsam Erfolge zu feiern.': 'Because we offer more than just creative ideas – we deliver results. With our broad expertise and passion for digital innovation, we work hand in hand with our clients to celebrate success together.',
+        'Lassen Sie uns gemeinsam Ihre digitale Präsenz auf das nächste Level heben!': 'Let us take your digital presence to the next level together!',
+        'Kontaktieren Sie uns – Wir freuen uns darauf, Sie kennenzulernen!': 'Contact us – We look forward to meeting you!'
     }
 };
 
