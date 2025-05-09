@@ -2,22 +2,13 @@
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData);
-        
-        // Validate form
         let isValid = true;
         const inputs = contactForm.querySelectorAll('input, textarea');
-        
+
         inputs.forEach(input => {
             if (input.hasAttribute('required') && !input.value.trim()) {
                 isValid = false;
                 input.classList.add('error');
-                
-                // Add shake animation
                 input.classList.add('shake');
                 setTimeout(() => {
                     input.classList.remove('shake');
@@ -26,60 +17,14 @@ if (contactForm) {
                 input.classList.remove('error');
             }
         });
-        
-        if (!isValid) return;
-        
-        // Show loading state
-        const submitButton = contactForm.querySelector('button[type="submit"]');
-        const originalButtonText = submitButton.textContent;
-        submitButton.textContent = 'Sending...';
-        submitButton.disabled = true;
-        
-        // Send form data to email using FormSubmit service
-        fetch('https://formsubmit.co/ramika3718@gmail.com', {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
-            }
-        })
-        .then(response => {
-            if (response.ok) {
-                // Show success message with animation
-                const successMessage = document.createElement('div');
-                successMessage.className = 'success-message';
-                successMessage.textContent = 'Thank you for your message! We will get back to you soon.';
-                contactForm.appendChild(successMessage);
-                
-                // Reset form after delay
-                setTimeout(() => {
-                    contactForm.reset();
-                    successMessage.remove();
-                }, 3000);
-            } else {
-                throw new Error('Form submission failed');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            // Show error message
-            const errorMessage = document.createElement('div');
-            errorMessage.className = 'error-message';
-            errorMessage.textContent = 'There was an error sending your message. Please try again later.';
-            contactForm.appendChild(errorMessage);
-            
-            // Remove error message after delay
-            setTimeout(() => {
-                errorMessage.remove();
-            }, 3000);
-        })
-        .finally(() => {
-            // Reset button state
-            submitButton.textContent = originalButtonText;
-            submitButton.disabled = false;
-        });
+
+        if (!isValid) {
+            e.preventDefault(); // block submission if invalid
+        }
+        // ✅ If valid, allow the browser to handle submission via <form action="...">
     });
 }
+
 
 // Booking form handling
 const bookingForm = document.getElementById('bookingForm');

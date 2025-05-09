@@ -82,11 +82,13 @@ const translations = {
 
         // About Us Section
         'Willkommen bei Pixel & Pitch – Ihrem Partner für digitales Marketing, Webentwicklung und Vertrieb!': 'Welcome to Pixel & Pitch – Your partner for digital marketing, web development, and sales!',
-        'Wir sind ein kreatives und engagiertes Team, das sich darauf spezialisiert hat, Unternehmen durch innovative digitale Lösungen und maßgeschneiderte Vertriebsstrategien erfolgreich zu machen. Unser Ziel ist es, Ihre Marke online sichtbarer und attraktiver zu gestalten – und das mit einem klaren Fokus auf Ihre individuellen Bedürfnisse.': 'We are a creative and dedicated team specializing in making businesses successful through innovative digital solutions and tailored sales strategies. Our goal is to make your brand more visible and attractive online – with a clear focus on your individual needs.',
+        'team_description': 'We are a creative and dedicated team specializing in making businesses successful through innovative digital solutions and tailored sales strategies. Our goal is to make your brand more visible and attractive online – with a clear focus on your individual needs.',
         'Warum Pixel & Pitch?': 'Why Pixel & Pitch?',
         'Weil wir mehr bieten als nur kreative Ideen – wir liefern Ergebnisse. Mit unserem breiten Fachwissen und unserer Leidenschaft für digitale Innovation arbeiten wir Hand in Hand mit unseren Kunden, um gemeinsam Erfolge zu feiern.': 'Because we offer more than just creative ideas – we deliver results. With our broad expertise and passion for digital innovation, we work hand in hand with our clients to celebrate success together.',
         'Lassen Sie uns gemeinsam Ihre digitale Präsenz auf das nächste Level heben!': 'Let us take your digital presence to the next level together!',
-        'Kontaktieren Sie uns – Wir freuen uns darauf, Sie kennenzulernen!': 'Contact us – We look forward to meeting you!'
+        'Kontaktieren Sie uns – Wir freuen uns darauf, Sie kennenzulernen!': 'Contact us – We look forward to meeting you!',
+        'welcome_message': 'Welcome to Pixel & Pitch – Your partner for digital marketing, web development, and sales!',
+        'full_welcome_message': 'Welcome to Pixel & Pitch – Your partner for digital marketing, web development, and sales! We are a creative and dedicated team specializing in making businesses successful through innovative digital solutions and tailored sales strategies. Our goal is to make your brand more visible and attractive online – with a clear focus on your individual needs.'
     },
     de: {
         // Navigation
@@ -165,39 +167,41 @@ const translations = {
 
         // About Us Section
         'Willkommen bei Pixel & Pitch – Ihrem Partner für digitales Marketing, Webentwicklung und Vertrieb!': 'Welcome to Pixel & Pitch – Your partner for digital marketing, web development, and sales!',
-        'Wir sind ein kreatives und engagiertes Team, das sich darauf spezialisiert hat, Unternehmen durch innovative digitale Lösungen und maßgeschneiderte Vertriebsstrategien erfolgreich zu machen. Unser Ziel ist es, Ihre Marke online sichtbarer und attraktiver zu gestalten – und das mit einem klaren Fokus auf Ihre individuellen Bedürfnisse.': 'We are a creative and dedicated team specializing in making businesses successful through innovative digital solutions and tailored sales strategies. Our goal is to make your brand more visible and attractive online – with a clear focus on your individual needs.',
+        'team_description': 'Wir sind ein kreatives und engagiertes Team, das sich darauf spezialisiert hat, Unternehmen durch innovative digitale Lösungen und maßgeschneiderte Vertriebsstrategien erfolgreich zu machen. Unser Ziel ist es, Ihre Marke online sichtbarer und attraktiver zu gestalten – und das mit einem klaren Fokus auf Ihre individuellen Bedürfnisse.',
         'Warum Pixel & Pitch?': 'Why Pixel & Pitch?',
         'Weil wir mehr bieten als nur kreative Ideen – wir liefern Ergebnisse. Mit unserem breiten Fachwissen und unserer Leidenschaft für digitale Innovation arbeiten wir Hand in Hand mit unseren Kunden, um gemeinsam Erfolge zu feiern.': 'Because we offer more than just creative ideas – we deliver results. With our broad expertise and passion for digital innovation, we work hand in hand with our clients to celebrate success together.',
         'Lassen Sie uns gemeinsam Ihre digitale Präsenz auf das nächste Level heben!': 'Let us take your digital presence to the next level together!',
-        'Kontaktieren Sie uns – Wir freuen uns darauf, Sie kennenzulernen!': 'Contact us – We look forward to meeting you!'
+        'Kontaktieren Sie uns – Wir freuen uns darauf, Sie kennenzulernen!': 'Contact us – We look forward to meeting you!',
+        'welcome_message': 'Willkommen bei Pixel & Pitch – Ihrem Partner für digitales Marketing, Webentwicklung und Vertrieb!',
+        'full_welcome_message': 'Willkommen bei Pixel & Pitch – Ihrem Partner für digitales Marketing, Webentwicklung und Vertrieb! Wir sind ein kreatives und engagiertes Team, das sich darauf spezialisiert hat, Unternehmen durch innovative digitale Lösungen und maßgeschneiderte Vertriebsstrategien erfolgreich zu machen. Unser Ziel ist es, Ihre Marke online sichtbarer und attraktiver zu gestalten – und das mit einem klaren Fokus auf Ihre individuellen Bedürfnisse.'
     }
 };
 
 let currentLang = sessionStorage.getItem('language') || 'de';
 
 function translatePage(lang) {
-    console.log('Starting translation to:', lang);
+    // console.log('Starting translation to:', lang);
     const elements = document.querySelectorAll('[data-translate]');
-    console.log('Found elements to translate:', elements.length);
+    // console.log('Found elements to translate:', elements.length);
     
     if (elements.length === 0) {
-        console.warn('No elements with data-translate attribute found!');
+        // console.warn('No elements with data-translate attribute found!');
         return;
     }
     
     elements.forEach(element => {
+        // console.log('Processing element:', element);
         const key = element.getAttribute('data-translate');
-        console.log('Processing element:', element);
-        console.log('Translation key:', key);
+        // console.log('Translation key:', key);
         
         if (!key) {
-            console.warn('Element has data-translate but no key:', element);
+            // console.warn('Element has data-translate but no key:', element);
             return;
         }
         
         if (translations[lang] && translations[lang][key]) {
             const newText = translations[lang][key];
-            console.log('Applying translation:', newText);
+            // console.log('Applying translation:', newText);
             
             // Handle select elements and their options
             if (element.tagName === 'SELECT') {
@@ -212,9 +216,9 @@ function translatePage(lang) {
                 element.textContent = newText;
             }
         } else {
-            console.warn('No translation found for key:', key, 'in language:', lang);
+            // console.warn('No translation found for key:', key, 'in language:', lang);
         }
     });
     
-    console.log('Translation complete for language:', lang);
+    // console.log('Translation complete for language:', lang);
 } 
