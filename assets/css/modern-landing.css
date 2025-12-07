@@ -361,24 +361,45 @@ body {
         "brand brand content content";
 }
 
+/* CARD LINK STYLES - FIXED */
+.card-link {
+    text-decoration: none;
+    color: inherit; /* This is KEY - makes link inherit colors from parent */
+    display: flex;
+    transition: transform 0.4s ease;
+    padding: 0;
+    margin: 0;
+}
+
+.card-link:hover {
+    transform: translateY(-15px);
+    text-decoration: none; /* Remove underline */
+}
+
+.card-link:hover .feature-card {
+    transform: translateY(-15px);
+    box-shadow: 0 15px 40px var(--shadow-dark);
+}
+
 .feature-card {
     padding: 2.5rem;
     border-radius: 15px;
-    background: var(--white-color);
     box-shadow: 0 8px 30px var(--shadow-light);
     transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
-    cursor: pointer;
     width: 100%;
     box-sizing: border-box;
-    min-height: 180px; /* Consistent minimum height */
+    min-height: 180px;
+    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+    /* Remove cursor pointer since link handles click */
 }
 
-/* Glass shine animation */
+/* Glass shine animation - apply to card instead of link */
 .feature-card::after {
     content: '';
     position: absolute;
@@ -389,15 +410,10 @@ body {
     background: linear-gradient(120deg, rgba(255,255,255,0) 30%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 70%);
     transform: translateX(-100%);
     transition: transform 0.6s ease;
+    pointer-events: none; /* Don't interfere with clicking */
 }
 
-/* Hover effects */
-.feature-card:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 15px 40px var(--shadow-dark);
-}
-
-.feature-card:hover::after {
+.card-link:hover .feature-card::after {
     transform: translateX(100%);
 }
 
@@ -427,79 +443,83 @@ body {
     color: var(--card-text-light);
 }
 
-.feature-card:hover h3 {
+.card-link:hover .feature-card h3 {
     transform: translateY(-5px);
 }
 
-.feature-card:hover p {
+.card-link:hover .feature-card p {
     transform: translateY(-3px);
 }
 
 /* Position and color each card */
 
 /* 1. P&P WebLab - Takes 2 columns in first row */
-.feature-card:nth-child(1) {
+.card-link:nth-child(1) .feature-card {
     grid-area: weblab;
-    grid-column: 1 / span 2;
-    grid-row: 1 / span 1;
     background: var(--card-weblab); /* Amber/Orange gradient */
     color: var(--white-color);
 }
 
 /* 2. P&P TechManufaktur - Takes 1 column in first row */
-.feature-card:nth-child(2) {
+.card-link:nth-child(2) .feature-card {
     grid-area: techmanufaktur;
-    grid-column: 3 / span 1;
-    grid-row: 1 / span 1;
     background: var(--card-futuretech); /* Purple/Indigo gradient */
     color: var(--white-color);
 }
 
 /* 3. Performance-Labor - Takes 1 column in first row */
-.feature-card:nth-child(3) {
+.card-link:nth-child(3) .feature-card {
     grid-area: performance;
-    grid-column: 4 / span 1;
-    grid-row: 1 / span 1;
     background: var(--card-performance); /* Cyan/Teal gradient */
     color: var(--white-color);
 }
 
 /* 4. PIXEL & PITCH MARKENAUTORITÄT - Takes 2 columns in second row */
-.feature-card:nth-child(4) {
+.card-link:nth-child(4) .feature-card {
     grid-area: brand;
-    grid-column: 1 / span 2;
-    grid-row: 2 / span 1;
     background: var(--card-brand); /* Emerald/Green gradient */
     color: var(--white-color);
 }
 
 /* 5. INHALTSATEILER - Takes 2 columns in second row */
-.feature-card:nth-child(5) {
+.card-link:nth-child(5) .feature-card {
     grid-area: content;
-    grid-column: 3 / span 2;
-    grid-row: 2 / span 1;
     background: var(--card-content); /* Bright Blue gradient */
     color: var(--white-color);
 }
 
-/* Remove the old card-specific styles */
-/*
-.feature-card.vertrieb,
-.feature-card.social-media,
-.feature-card.kreatives,
-.feature-card.anzeigen,
-.feature-card.webseiten {
-    /* These are now handled by nth-child positioning 
+/* Position the links in the grid */
+.card-link:nth-child(1) {
+    grid-area: weblab;
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 1;
 }
-*/
+
+.card-link:nth-child(2) {
+    grid-area: techmanufaktur;
+    grid-column: 3 / span 1;
+    grid-row: 1 / span 1;
+}
+
+.card-link:nth-child(3) {
+    grid-area: performance;
+    grid-column: 4 / span 1;
+    grid-row: 1 / span 1;
+}
+
+.card-link:nth-child(4) {
+    grid-area: brand;
+    grid-column: 1 / span 2;
+    grid-row: 2 / span 1;
+}
+
+.card-link:nth-child(5) {
+    grid-area: content;
+    grid-column: 3 / span 2;
+    grid-row: 2 / span 1;
+}
+
 /* Mobile responsiveness */
-/* ==================== IMPROVED MOBILE STYLES ==================== */
-
-/* ==================== IMPROVED MOBILE/TABLET STYLES ==================== */
-
-/* ==================== TABLET & MOBILE - 2 columns, 4 rows ==================== */
-
-/* From 1024px down to 0 - ALL use 2 columns, 4 rows */
 @media (max-width: 1024px) {
     .features-grid {
         grid-template-columns: 1fr 1fr; /* 2 columns */
@@ -514,37 +534,36 @@ body {
     }
     
     /* WebLab takes full width (2 columns) in first row */
-    .feature-card:nth-child(1) {
+    .card-link:nth-child(1) {
         grid-column: 1 / span 2;
         grid-row: 1 / span 1;
     }
     
     /* TechManufaktur in row 2, column 1 */
-    .feature-card:nth-child(2) {
+    .card-link:nth-child(2) {
         grid-column: 1 / span 1;
         grid-row: 2 / span 1;
     }
     
     /* Performance-Labor in row 2, column 2 */
-    .feature-card:nth-child(3) {
+    .card-link:nth-child(3) {
         grid-column: 2 / span 1;
         grid-row: 2 / span 1;
     }
     
     /* Brand Authority takes full width (2 columns) in row 3 */
-    .feature-card:nth-child(4) {
+    .card-link:nth-child(4) {
         grid-column: 1 / span 2;
         grid-row: 3 / span 1;
     }
     
     /* Content Atelier takes full width (2 columns) in row 4 */
-    .feature-card:nth-child(5) {
+    .card-link:nth-child(5) {
         grid-column: 1 / span 2;
         grid-row: 4 / span 1;
     }
 }
 
-/* 1024px to 769px (Tablet) */
 @media (max-width: 1024px) and (min-width: 769px) {
     .features-grid {
         gap: 1.2rem;
@@ -567,7 +586,6 @@ body {
     }
 }
 
-/* 768px and below (Mobile) */
 @media (max-width: 768px) {
     .features {
         padding: 3rem 0;
@@ -596,12 +614,11 @@ body {
     }
     
     /* Adjust hover effects for touch devices */
-    .feature-card:hover {
+    .card-link:hover {
         transform: translateY(-8px);
     }
 }
 
-/* Small Mobile (up to 480px) */
 @media (max-width: 480px) {
     .features {
         padding: 2.5rem 0;
@@ -629,7 +646,6 @@ body {
     }
 }
 
-/* Very Small Mobile (up to 360px) */
 @media (max-width: 360px) {
     .features-grid {
         gap: 0.6rem;
@@ -651,9 +667,21 @@ body {
         line-height: 1.3;
     }
 }
-/* Remove the old 3-column responsive code since we have a new layout */
-/* This replaces the old @media (min-width: 769px) code block */
 
+/* Important: Reset link states for visited, hover, active */
+.card-link:visited,
+.card-link:active,
+.card-link:focus {
+    color: inherit;
+    text-decoration: none;
+    outline: none;
+}
+
+/* Optional: Add focus styles for accessibility */
+.card-link:focus-visible .feature-card {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
 
 /* CTA Section */
 .cta-section {
@@ -788,3 +816,151 @@ body {
         font-size: 1rem;
     }
 } 
+
+
+/* THE SERVICES SECTION*/
+.card-section {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    margin-top: 80px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    color: white;
+}
+
+.card-section h2 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-section p {
+    font-size: clamp(1rem, 2.5vw, 1.3rem); /* Responsive font size */
+    line-height: 1.6; /* Better readability */
+    max-width: min(800px, 90%); /* Responsive max-width */
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    padding: 0 1rem; /* Side padding for mobile */
+    
+    /* Enhanced text rendering */
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+    /* Perfect spacing */
+    letter-spacing: -0.01em;
+    word-spacing: 0.02em;
+    
+    /* Paragraph spacing */
+    margin-bottom: 1.5em;
+}
+
+/* Better line length for readability (ideal is 45-75 chars) */
+.card-section p {
+    max-width: 65ch; /* Character-based width (better than pixels) */
+}
+
+/* First paragraph special treatment */
+.card-section p:first-of-type {
+    font-size: clamp(1.1rem, 2.8vw, 1.4rem);
+    line-height: 1.7;
+    font-weight: 500;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .card-section p {
+        line-height: 1.65; /* Slightly more spacing on mobile */
+        font-size: clamp(1.05rem, 4vw, 1.2rem);
+        padding: 0 0.5rem;
+        text-align: left; /* Left-align for better mobile reading */
+        hyphens: auto; /* Automatic hyphenation */
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    /* Better paragraph spacing on mobile */
+    .card-section p + p {
+        margin-top: 1.2rem;
+    }
+}
+
+/* Desktop optimizations */
+@media (min-width: 769px) {
+    .card-section p {
+        line-height: 1.75; /* More breathing room on desktop */
+        text-align: justify; /* Justified text looks cleaner on desktop */
+        text-justify: inter-word;
+        hyphens: manual; /* Manual hyphenation control */
+    }
+    
+    /* Add drop cap for first paragraph on desktop */
+    .card-section p:first-of-type::first-letter {
+        font-size: 3.5em;
+        float: left;
+        line-height: 0.8;
+        padding-right: 0.1em;
+        padding-top: 0.1em;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.9);
+    }
+}
+
+/* Large desktop screens (4K+) */
+@media (min-width: 1600px) {
+    .card-section p {
+        max-width: 70ch;
+        font-size: 1.4rem;
+        line-height: 1.8;
+    }
+}
+
+/* For very small mobile devices */
+@media (max-width: 480px) {
+    .card-section p {
+        font-size: 1rem;
+        line-height: 1.7;
+        padding: 0 0.25rem;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+    }
+    
+    /* Remove drop cap on mobile */
+    .card-section p:first-of-type::first-letter {
+        all: unset;
+    }
+}
+
+/* Ensure good contrast and readability */
+.card-section p {
+    color: rgba(255, 255, 255, 0.95); /* Slightly off-white for less strain */
+    font-weight: 400; /* Regular weight for body text */
+}
+
+/* Add smooth text scaling */
+.card-section p {
+    transition: font-size 0.3s ease, line-height 0.3s ease;
+}
+
+/* For long texts, add paragraph indentation on desktop */
+@media (min-width: 769px) {
+    .card-section p {
+        text-indent: 1.5em; /* Traditional paragraph indentation */
+    }
+    
+    .card-section p:first-of-type {
+        text-indent: 0; /* First paragraph no indent */
+    }
+}
