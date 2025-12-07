@@ -193,22 +193,21 @@ body {
         background: rgba(255, 255, 255, 0.15) !important;
     }
 }
-
 /* Hero Section - Fullscreen Video */
 .hero {
     min-height: 100vh;
-    background: #ffffff !important; /* White background fallback */
+    background: #ffffff !important;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
-    padding: 0; /* Remove padding */
-    padding-top: 0; /* Remove top padding */
-    margin-top: 80px; /* Account for fixed navbar */
+    padding: 0;
+    margin-top: 80px;
 }
 
 .hero-content {
     max-width: 100%;
+    background: black;
     margin: 0;
     position: relative;
     z-index: 2;
@@ -223,65 +222,47 @@ body {
 
 .hero-video {
     width: 100%;
-    height: 100%;
-    border-radius: 0; /* Remove rounded corners */
+    height: auto; /* Let height be determined by aspect ratio */
+    border-radius: 0;
     overflow: hidden;
-    box-shadow: none; /* Remove shadow for cleaner look */
+    box-shadow: none;
     position: relative;
-    padding-top: 0; /* Remove aspect ratio padding */
+    padding-top: 0;
 }
 
 .hero-video video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* This makes video cover the entire container */
-    border-radius: 0; /* Remove rounded corners */
+    width: 100%; /* Full width always */
+    height: auto; /* Height adjusts proportionally */
+    object-fit: contain; /* Show entire video without cropping */
+    border-radius: 0;
+    display: block; /* Remove extra space below video */
 }
 
-/* Add overlay or content if needed */
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3); /* Optional overlay */
-    z-index: 1;
-}
-
-/* If you want to add text/content over the video */
-.hero-text-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    z-index: 3;
-    max-width: 800px;
-    padding: 2rem;
-}
-
-.hero-text-overlay h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.hero-text-overlay p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-/* Mobile adjustments */
+/* Mobile adjustments - Keep full width, scale height proportionally */
 @media (max-width: 768px) {
     .hero {
-        margin-top: 70px; /* Adjust for smaller navbar on mobile */
+        margin-top: 80px;
+        min-height: auto; /* Remove fixed height */
+        height: auto; /* Let content determine height */
+    }
+    
+    .hero-content {
+        height: auto; /* Adjust height based on video */
+        min-height: auto;
+        align-items: flex-start; /* Align to top */
+    }
+    
+    .hero-video {
+        width: 100vw; /* Full viewport width */
+        max-width: 100%;
+        height: auto; /* Height scales with width */
+    }
+    
+    .hero-video video {
+        width: 100%;
+        height: auto;
+        max-height: 80vh; /* Optional: prevent too tall on mobile */
+        object-fit: contain;
     }
     
     .hero-text-overlay h1 {
@@ -291,18 +272,49 @@ body {
     .hero-text-overlay p {
         font-size: 1.2rem;
     }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+    .hero {
+        margin-top: 100px;
+    }
     
     .hero-video video {
-        object-position: center center; /* Ensure video is centered on mobile */
+        max-height: 70vh; /* Further limit height on very small screens */
+    }
+}
+
+/* For landscape orientation on mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero-video video {
+        max-height: 90vh; /* Allow more height in landscape */
     }
 }
 
 /* For very tall screens */
 @media (min-height: 1000px) {
     .hero-video video {
-        object-fit: contain; /* Show full video on very tall screens */
-        background: #000; /* Black bars if video doesn't cover */
+        max-height: 90vh; /* Limit height on very tall screens */
     }
+}
+
+/* Alternative: Maintain aspect ratio container */
+/* If you want to maintain a specific aspect ratio for the video */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+    /* Use 75% for 4:3, 50% for 2:1, etc. */
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Show entire video */
 }
 /* Features Section - Updated 4x2 Grid Layout */
 .features {
