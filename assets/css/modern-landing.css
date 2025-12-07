@@ -228,6 +228,7 @@ body {
     box-shadow: none;
     position: relative;
     padding-top: 0;
+    background-color: black;
 }
 
 .hero-video video {
@@ -236,6 +237,7 @@ body {
     object-fit: contain; /* Show entire video without cropping */
     border-radius: 0;
     display: block; /* Remove extra space below video */
+    background-color: black;
 }
 
 /* Mobile adjustments - Keep full width, scale height proportionally */
