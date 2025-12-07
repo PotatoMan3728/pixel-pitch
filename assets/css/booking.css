@@ -1,3 +1,9 @@
+:root {
+    --form-label-color: #333333;
+    --list-label-color: #333333;
+}
+
+
 .booking-section {
     padding-top: 80px;
     min-height: calc(100vh - 80px);
@@ -30,7 +36,8 @@
 .booking-info h2 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
-    color: var(--primary-color);
+    font-weight: 700;
+    color: var(--accent-color);
 }
 
 .booking-info p {
@@ -62,6 +69,7 @@
     padding: 0.5rem 0;
     padding-left: 1.5rem;
     position: relative;
+    color: var(--list-label-color);
 }
 
 .booking-details li::before {
@@ -88,7 +96,7 @@
 .form-group label {
     display: block;
     margin-bottom: 0.5rem;
-    color: var(--text-color);
+    color: var(--form-label-color);
     font-weight: 500;
 }
 

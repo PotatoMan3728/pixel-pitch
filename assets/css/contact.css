@@ -1,3 +1,7 @@
+:root {
+    --form-label-color: #333333;
+}
+
 .contact-section {
     padding: 120px 0 0;
     background-color: var(--background-color);
@@ -26,7 +30,8 @@
 .contact-info h2 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
-    color: var(--primary-color);
+    font-weight: 700;
+    color: var(--accent-color);
 }
 
 .contact-info p {
@@ -57,6 +62,7 @@
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     width: 100%;
+    color: var(--form-label-color);
 }
 
 .form-group {
@@ -66,7 +72,7 @@
 .form-group label {
     display: block;
     margin-bottom: 0.5rem;
-    color: var(--text-color);
+    color: var(black);
     font-weight: 500;
 }
 
