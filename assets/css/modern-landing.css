@@ -46,15 +46,23 @@ body {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
 
-/* Optional: Also change the border color of the toggler button */
 .navbar-toggler {
-    border-color: none !important;
+    border: none !important;
+    /* Optional: add some padding instead */
+    padding: 8px;
 }
 
-/* When hovered or focused - use your accent color */
+/* Just change icon color on hover/focus */
 .navbar-toggler:hover .navbar-toggler-icon,
 .navbar-toggler:focus .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 107, 107, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* Optional: add background on hover/focus instead of border */
+.navbar-toggler:hover,
+.navbar-toggler:focus {
+    background-color: rgba(255, 107, 107, 0.1);
+    border-radius: 4px;
 }
 
 /* Navigation - Glass Morphism */
